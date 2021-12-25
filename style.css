@@ -3,6 +3,19 @@ html, body{
   padding: 0;
   box-sizing: border-box;
 }
+
+button,img,h3,h1 {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+button:focus,img:focus {
+    outline: none !important;
+}
 body{
   background-color: #0c0e11;
   position: relative;
@@ -48,8 +61,16 @@ p.text {
   position: absolute;
   color: #fff;
   display: inline-block;
+  background-color: #000;
 }
-
+p.text:focus{
+  outline-style:dashed;
+  outline-width: thin;
+  outline-color: #ee00e0;
+}
+p.text::selection {
+  background-color: #ee00e0;
+}
 button{
   border: 2px solid #fff;
   border-radius: 25px;
@@ -77,4 +98,23 @@ button:active{
   align-items: center;
   margin: auto;
   display: block;
+}
+svg#next, svg#prev{
+  fill: #fff;
+  display: block;
+  align-self: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #FF10F0;
+  border-radius: 50%;
+}
+svg#next{
+  transform: translate(150px, -110px);
+}
+svg#prev{
+  transform: translate(-150px, -50px) rotate(180deg);
+}
+svg#next:active, svg#prev:active{
+fill: #FF10F0;
+background-color: #fff;
 }
