@@ -63,4 +63,27 @@ for (let i = 0; i < lengthAll; i++) {
   textValue[i] =  place.children[2*i+1].innerText;
 }
 console.log(arrowCoords, textValue, realW, realH)
+const data ={
+  "arrowCoords" : arrowCoords,
+  "textValue" : textValue,
+  "realW" : realW,
+  "realH" : realH
+}
+
+  let headers = new Headers();
+  headers.append("Content-Type", "application/json");
+
+
+  let requestOptions = {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(data),
+    redirect: 'follow'
+  };
+
+  fetch("https://artest.supportgenie.io/codata", requestOptions)
+.then(response => response.text())
+.then(result => {location.href = ""})
+.catch(error => console.log('error', error));
+
 });
